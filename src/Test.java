@@ -16,7 +16,7 @@ public class Test {
             System.out.println("4.TOTAL MEAT");
             System.out.println("5.TOTAL CRISPYFLOUR");
             System.out.println("6.EXIT PROGRAM");
-        chose = Integer.parseInt(sc.nextLine());
+            chose = Integer.parseInt(sc.nextLine());
         switch (chose){
             case 1:
                 System.out.println("Enter ID :");
@@ -36,6 +36,7 @@ public class Test {
                 System.out.println("Enter weight");
                 double weight = sc.nextDouble();
                 Meat meat = new Meat(id, name, manufacturingDate, cost, weight);
+                sc.nextLine();
                 manager.addNewMeat(meat);
                 break;
             case 2:
@@ -56,6 +57,7 @@ public class Test {
                 System.out.println("Enter quantity");
                 double quantity = sc.nextDouble();
                 CrispyFlour crispyFlour = new CrispyFlour(id1, name1, manufacturingDate1, cost1,quantity);
+                sc.nextLine();
                 manager.addNewCrispyFlour(crispyFlour);
                 break;
             case 3:

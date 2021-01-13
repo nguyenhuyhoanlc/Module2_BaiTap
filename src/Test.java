@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -23,13 +22,11 @@ public class Test {
                 String id = sc.nextLine();
                 System.out.println("Enter name :");
                 String name = sc.nextLine();
-                LocalDate manufacturingDate = null;
+                LocalDate manufacturingDate;
                 do {
                     System.out.println("Nhập ngày sản xuất kiểu yyyy/MM/dd");
                     birthdayOfProduct = sc.nextLine();
-                    try {
-                        manufacturingDate = LocalDate.parse(birthdayOfProduct);
-                    }catch (Exception e){}
+                    manufacturingDate = LocalDate.parse(birthdayOfProduct);
                 }while (!birthdayOfProduct.matches(REGEX_MANUFACTURING_DATE));
                 System.out.println("Enter cost");
                 int cost = sc.nextInt();
@@ -44,13 +41,11 @@ public class Test {
                 String id1 = sc.nextLine();
                 System.out.println("Enter name :");
                 String name1 = sc.nextLine();
-                LocalDate manufacturingDate1 = null;
+                LocalDate manufacturingDate1;
                 do {
                     System.out.println("Nhập ngày sản xuất kiểu yyyy/MM/dd");
                     birthdayOfProduct = sc.nextLine();
-                    try {
-                        manufacturingDate1 = LocalDate.parse(birthdayOfProduct);
-                    }catch (Exception e){}
+                    manufacturingDate1 = LocalDate.parse(birthdayOfProduct);
                 }while (!birthdayOfProduct.matches(REGEX_MANUFACTURING_DATE));
                 System.out.println("Enter cost");
                 int cost1 = sc.nextInt();
@@ -63,10 +58,10 @@ public class Test {
             case 3:
                 break;
             case 4:
-                manager.totalDifferenceMeat();
+                System.out.println(manager.totalDifferenceMeat());
                 break;
             case 5:
-                manager.totalDifferenceCrispyFlour();
+                System.out.println(manager.totalDifferenceCrispyFlour());
                 break;
             case 6:
                 System.out.println("Exit Program");

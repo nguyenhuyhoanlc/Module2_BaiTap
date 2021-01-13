@@ -1,9 +1,12 @@
+import java.sql.SQLOutput;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Test {
     static Manager manager = new Manager();
     static Scanner sc = new Scanner(System.in);
-
+    static String birthdayOfProduct;
+    static final String REGEX_MANUFACTURING_DATE = "^[0-9]{4}-[0-9]{2}-[0-9]{2}$";
     public static void main(String[] args) {
         int chose;
         do {
@@ -16,20 +19,58 @@ public class Test {
         chose = Integer.parseInt(sc.nextLine());
         switch (chose){
             case 1:
-                manager.addNewMeat();
+                System.out.println("Enter ID :");
+                String id = sc.nextLine();
+                System.out.println("Enter name :");
+                String name = sc.nextLine();
+                LocalDate manufacturingDate = null;
+                do {
+                    System.out.println("Nhập ngày sản xuất kiểu yyyy/MM/dd");
+                    birthdayOfProduct = sc.nextLine();
+                    try {
+                        manufacturingDate = LocalDate.parse(birthdayOfProduct);
+                    }catch (Exception e){}
+                }while (!birthdayOfProduct.matches(REGEX_MANUFACTURING_DATE));
+                System.out.println("Enter cost");
+                int cost = sc.nextInt();
+                System.out.println("Enter weight");
+                double weight = sc.nextDouble();
+                Meat meat = new Meat(id, name, manufacturingDate, cost, weight);
+                manager.addNewMeat(meat);
                 break;
             case 2:
-                manager.addNewCrispyFlour();
+                System.out.println("Enter ID :");
+                String id1 = sc.nextLine();
+                System.out.println("Enter name :");
+                String name1 = sc.nextLine();
+                LocalDate manufacturingDate1 = null;
+                do {
+                    System.out.println("Nhập ngày sản xuất kiểu yyyy/MM/dd");
+                    birthdayOfProduct = sc.nextLine();
+                    try {
+                        manufacturingDate1 = LocalDate.parse(birthdayOfProduct);
+                    }catch (Exception e){}
+                }while (!birthdayOfProduct.matches(REGEX_MANUFACTURING_DATE));
+                System.out.println("Enter cost");
+                int cost1 = sc.nextInt();
+                System.out.println("Enter quantity");
+                double quantity = sc.nextDouble();
+                CrispyFlour crispyFlour = new CrispyFlour(id1, name1, manufacturingDate1, cost1,quantity);
+                manager.addNewCrispyFlour(crispyFlour);
                 break;
             case 3:
                 break;
             case 4:
+                manager.totalDifferenceMeat();
                 break;
             case 5:
+                manager.totalDifferenceCrispyFlour();
                 break;
             case 6:
+                System.out.println("Exit Program");
                 break;
         }
         }while (chose !=0);
+        System.exit(0);
     }
 }

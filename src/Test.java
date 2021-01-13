@@ -70,9 +70,9 @@ public class Test {
                 break;
             case 6:
                 System.out.println("Exit Program");
+                System.exit(0);
                 break;
         }
         }while (chose !=0);
-        System.exit(0);
     }
 }

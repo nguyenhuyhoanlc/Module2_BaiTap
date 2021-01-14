@@ -28,4 +28,16 @@ public class Manager {
     public void addNewCrispyFlour(CrispyFlour crispyFlour){
         crispyFlourList.add(crispyFlour);
     }
+
+    public void showAllMeat(){
+        for (Meat meat : meatList) {
+            System.out.println(meat);
+        }
+    }
+
+    public void showAllCrispy(){
+        for (CrispyFlour crispyFlour : crispyFlourList) {
+            System.out.println(crispyFlour);
+        }
+    }
 }

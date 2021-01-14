@@ -14,13 +14,6 @@ public class Meat extends Material implements Discount {
     }
 
     @Override
-    public String toString() {
-        return "Meat{" +
-                "weight=" + weight +
-                '}';
-    }
-
-    @Override
     public double getRealMoney(){
         if (LocalDate.now().plusDays(3).isAfter(this.getManufacturingDate())){
             return this.getAmount() * 0.5;
@@ -29,5 +22,13 @@ public class Meat extends Material implements Discount {
         } else {
             return this.getAmount() * 0.9;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Meat{" +
+                super.toString() +
+                "weight=" + weight +
+                '}';
     }
 }

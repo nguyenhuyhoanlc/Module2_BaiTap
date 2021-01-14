@@ -14,13 +14,6 @@ public class CrispyFlour extends Material implements Discount{
     }
 
     @Override
-    public String toString() {
-        return "CrispyFlour{" +
-                "quantity=" + quantity +
-                '}';
-    }
-
-    @Override
     public double getRealMoney(){
         if (LocalDate.now().plusMonths(2).isAfter(this.getManufacturingDate())) {
             return this.getAmount() * 0.6;
@@ -31,4 +24,11 @@ public class CrispyFlour extends Material implements Discount{
         }
     }
 
+    @Override
+    public String toString() {
+        return "CrispyFlour{" +
+                super.toString() +
+                "quantity=" + quantity +
+                '}';
+    }
 }

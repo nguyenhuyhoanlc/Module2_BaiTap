@@ -27,12 +27,11 @@ public abstract class Material {
 
     @Override
     public String toString() {
-        return "VatLieu{" +
-                "id='" + id + '\'' +
+        return "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", manufacturingDate=" + manufacturingDate +
-                ", cost=" + cost +
-                '}';
+                ", cost=" + cost
+                ;
     }
 
 }
